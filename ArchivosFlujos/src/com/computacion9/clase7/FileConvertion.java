@@ -1,8 +1,10 @@
 package com.computacion9.clase7;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -21,6 +23,7 @@ public class FileConvertion {
 	private static void lectura(File ruta) {
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(ruta));
+			BufferedWriter writer = new BufferedWriter(new FileWriter("/Users/bidkar/Desktop/java_clase_file/mock_data.txt"));
 			String linea = null;
 			Scanner scanner = null;
 			int lineNumber = 1;
@@ -55,14 +58,17 @@ public class FileConvertion {
 						index++;
 					}
 //				10 20 20 50 10 20
-					System.out.printf("%-10d%-20s%-20s%-50s%-10s%-20s%n", u.getId(), u.getFirstname(), u.getLastname(),
-							u.getEmail(), u.getGender(), u.getIpAddress());
+//					 System.out.printf("%-10d%-20s%-20s%-50s%-10s%-20s%n", u.getId(), u.getFirstname(), u.getLastname(),
+//							u.getEmail(), u.getGender(), u.getIpAddress());
+					writer.write(String.format("%-10d%-20s%-20s%-50s%-10s%-20s%n", u.getId(), u.getFirstname(), u.getLastname(),
+							u.getEmail(), u.getGender(), u.getIpAddress()));
 				} else {
-					System.out.printf("%-10s%-20s%-20s%-50s%-10s%-20s%n", "id","first_name","last_name","email","gender","ip_address");
+//					System.out.printf("%-10s%-20s%-20s%-50s%-10s%-20s%n", "id","first_name","last_name","email","gender","ip_address");
+					writer.write(String.format("%-10s%-20s%-20s%-50s%-10s%-20s%n", "id","first_name","last_name","email","gender","ip_address"));
 					lineNumber++;
 				}
 			}
-
+			writer.close();
 			reader.close();
 		} catch (IOException e) {
 			e.printStackTrace();

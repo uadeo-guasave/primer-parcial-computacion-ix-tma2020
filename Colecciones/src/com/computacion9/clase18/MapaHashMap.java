@@ -22,6 +22,8 @@ public class MapaHashMap {
 		map.put(6, cat6);
 		
 		System.out.println(map);
+		map.remove(3);
+		System.out.println(map);
 		
 		HashMap<String,ArrayList<Categoria>> map2 = new HashMap<String,ArrayList<Categoria>>();
 		ArrayList<Categoria> mangas = new ArrayList<Categoria>();
@@ -36,6 +38,8 @@ public class MapaHashMap {
 		libros.add(cat6);
 		map2.put("Libro", libros);
 		
+		System.out.println(map2);
+		map2.remove("Libro");
 		System.out.println(map2);
 	}
 

@@ -14,6 +14,11 @@ public class Producto {
 		this.categoria_id = categoria_id;
 	}
 
+	@Override
+	public String toString() {
+		return "Producto [id=" + id + ", nombre=" + nombre + ", precio=" + precio + "]";
+	}
+
 	public int getId() {
 		return id;
 	}

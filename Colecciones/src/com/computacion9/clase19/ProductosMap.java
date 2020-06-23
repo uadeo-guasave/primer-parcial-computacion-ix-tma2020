@@ -1,7 +1,7 @@
 package com.computacion9.clase19;
 
 import java.util.HashMap;
-import java.util.Iterator;
+import java.util.Iterator;import java.util.Map;
 
 import com.computacion9.clase18.*;
 
@@ -32,23 +32,38 @@ public class ProductosMap {
 		while (it.hasNext()) {
 //			Obtener la llave
 			Producto producto = (Producto) it.next();
-			
+
 //			Obtener el valor
 			Categoria categoria = (Categoria) platillos.get(producto);
-			
+
+			System.out.println("Platillo: " + producto.getNombre() + ", Precio: $" + producto.getPrecio()
+					+ ", Categoría: " + categoria.getNombre());
+		}
+
+//		Usando keySet() y values() con ForEach
+		System.out.println("\nUtilizando keySet(), values() con forEach");
+		for (Producto producto : platillos.keySet()) {
+			System.out.println("Platillo: " + producto.getNombre() + ", Precio: $" + producto.getPrecio());
+		}
+
+		for (Categoria categoria : platillos.values()) {
+			System.out.println("Categoría: " + categoria.getNombre());
+		}
+
+		for (Producto producto : platillos.keySet()) {
+			Categoria categoria = (Categoria) platillos.get(producto);
 			System.out.println("Platillo: " + producto.getNombre() + ", Precio: $" + producto.getPrecio()
 					+ ", Categoría: " + categoria.getNombre());
 		}
 		
-//		Usando keySet() y values() con ForEach
-		System.out.println("\nUtilizando keySet(), values() con forEach");
-		for(Producto producto : platillos.keySet()) {
-			System.out.println("Platillo: " + producto.getNombre() + ", Precio: $" + producto.getPrecio());
+//		Usando Map.Entry<K,V>
+		for(Map.Entry<Producto, Categoria> entrada : platillos.entrySet()) {
+			System.out.println("Platillo: " + entrada.getKey().getNombre() + ", Precio: $" + entrada.getKey().getPrecio()
+			+ ", Categoría: " + entrada.getValue().getNombre());
 		}
 		
-		for(Categoria categoria : platillos.values()) {
-			System.out.println("Categoría: " + categoria.getNombre());
-		}
+//		Usando forEach y arrow functions
+		platillos.forEach((k,v) -> System.out.println("Producto: " + k.getNombre() + ", Categoria: " + v.getNombre()));
 
 	}
 

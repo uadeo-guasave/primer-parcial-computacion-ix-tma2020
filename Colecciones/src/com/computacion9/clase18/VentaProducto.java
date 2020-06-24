@@ -5,7 +5,7 @@ public class VentaProducto {
 	private int producto_id;
 	private int cantidad;
 	private double precio;
-	private double total;
+	private double subtotal;
 	
 	public VentaProducto(int venta_id, int producto_id, int cantidad, double precio) {
 		super();
@@ -13,7 +13,7 @@ public class VentaProducto {
 		this.producto_id = producto_id;
 		this.cantidad = cantidad;
 		this.precio = precio;
-		this.total = this.cantidad * this.precio;
+		this.subtotal = this.cantidad * this.precio;
 	}
 
 	public int getVenta_id() {
@@ -32,8 +32,8 @@ public class VentaProducto {
 		return precio;
 	}
 
-	public double getTotal() {
-		return total;
+	public double getSubtotal() {
+		return subtotal;
 	}
 	
 }
